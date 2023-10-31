@@ -92,24 +92,21 @@ const scoringAlgorithms = [simpleScore, vowelScore, oldScore];
 
 function scorerPrompt(word) {
 let algorithmQ = input.question("Which scoring algorithm would you like to use? \n" + 
-"0 - Simple: One point per character \n" +
+"0 - Simple: One point per character \n" +2
 "1 - Vowel Bonus: Vowels are worth 3 points \n" +
 "2 - Scrabble: Uses scrabble point system \n" +
 "Enter 0, 1, or 2: ")
-
+// use return ...  then console log put in run program 
    switch(algorithmQ) {
       case "0": 
-         console.log("algorithm name: ", scoringAlgorithms[0].name);
-         console.log("scoreFunction result: ", scoringAlgorithms[0].scoreFunction(word));
-         break
+         return scoringAlgorithms[0].scorerFunction(word);
+      
       case "1": 
-         console.log("algorithm name: ", scoringAlgorithms[1].name);
-         console.log("scoreFunction result: ", scoringAlgorithms[1].scoreFunction(word));
-         break
+         return scoringAlgorithms[1].scorerFunction(word);
+        
       case "2": 
-         console.log("algorithm name: ", scoringAlgorithms[2].name);
-         console.log("scoreFunction result: ", scoringAlgorithms[2].scoreFunction(word));
-         break
+         return scoringAlgorithms[2].scorerFunction(word);
+        
    }
 }
 
@@ -134,9 +131,11 @@ function transform(oldPointStructure) {
 let newPointStructure = {};
 
 function runProgram() {
-   initialPrompt();
+   console.log("scorerFunction result: ",initialPrompt());
 }
-
+//ran into the scrabbleScorer/scrabbleScore issue, but it was still //
+// passing my test it but it the code wasn't working. It took me a minute until I read my notes, and there I
+//jotted down the common error. 
 // Don't write any code below this line //
 // And don't change these or your program will not run as expected //
 module.exports = {
